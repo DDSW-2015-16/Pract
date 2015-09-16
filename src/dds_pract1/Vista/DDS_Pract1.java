@@ -31,12 +31,51 @@ public class DDS_Pract1 {
             //Aqui empezamos a escoger la opción que quiera el empresario
             switch(scanner.nextLine()){
                 case("c"):
-                //Llamamos a la opción area clientes
-                    //switch Editar/Registrar cliente
+                    //Hemos seleccionado la opción clientes
+                System.out.println(strings.getOpcionesClientes());
+                    switch(scanner.nextLine()){
+                        case("r"):
+                            //Hemos escogido la opción de registrar un cliente
+                            //A continuacion se pedira la informacion y se llamara al constructor
+                            //TODO: Pedir la información del piso y llamar al constructor
+                            System.out.println("funciona");
+                            break;
+                        case("e"):
+                            //Hemos escogido la opcion de editar los datos de un cliente
+                            //Se pedira que cliente quiere editar y que parametro
+                            //TODO: Preguntar que cliente queremos editar
+                            //TODO: Preguntar que caracteristica vamos a editar
+                            break;
+                        case("s"):
+                            //Hemos escogido la opcion de salir del area de clientes
+                            //TODO: Volver al estado anterior
+                            break;
+                        default:
+                            continue;
+                    }
                 break;
                 case("p"):
-                //llamamos la opción de registrar pisos
-                    //switch Editar/Registrar pisos
+                    //llamamos la opción de registrar pisos
+                    switch(scanner.nextLine()){
+                        case("r"):
+                            //Hemos escogido la opción de registrar un cliente
+                            //A continuacion se pedira la informacion y se llamara al constructor
+                            //TODO: Pedir la información del piso y llamar al constructor
+                            System.out.println("funciona");
+                            break;
+                        case("e"):
+                            //Hemos escogido la opcion de editar los datos de un cliente
+                            //Se pedira que cliente quiere editar y que parametro
+                            //TODO: Preguntar que cliente queremos editar
+                            //TODO: Preguntar que caracteristica vamos a editar
+                            break;
+                        case ("l"):
+                            
+                        case("s"):
+                            //Hemos escogido la opcion de salir del area de clientes
+                            //TODO: Volver al estado anterior
+                            break;
+                    }
                 break;
                 case("l"):
                 //visualizamos lista de pisos para escoger el piso a visitar
@@ -44,6 +83,8 @@ public class DDS_Pract1 {
                 break;
                 case("q"):
                     bigWhile = false;
+                default:
+                    
                 break;
             }
         }
