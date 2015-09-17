@@ -6,6 +6,7 @@
 package dds_pract1.controlador;
 
 import dds_pract1.modelo.Cliente;
+import dds_pract1.modelo.Piso;
 import java.util.ArrayList;
 
 /**
@@ -16,10 +17,41 @@ public class cnt
 {
     ArrayList<Cliente> llistaClients;
     Cliente tmpClient;
+    Piso tmpPiso;
+    ArrayList<Piso> llistaPisos;
     
     public cnt ()
     {
         llistaClients = new ArrayList<Cliente> ();
+        llistaPisos = new ArrayList<Piso>();
+    }
+    
+    //PISOS//
+    public void AddPiso() {
+        tmpPiso = new Piso();
+        llistaPisos.add(tmpPiso);
+    }
+    public String ShowListPisos () {
+        String lista = "";
+        for(int i = 0; i < llistaPisos.size(); ++i) {
+            lista += i + " " + llistaPisos.get(i);
+        }
+        return lista;
+    }
+    public void SeleccionarPiso(int k) {
+        tmpPiso = llistaPisos.get(k);
+    }
+    public void EdtiPrecio(double k) {
+        tmpPiso.setPrecio(k);
+    }
+    public void EditNum(int k) {
+        tmpPiso.setNum(k);
+    }
+    public void EditDireccion(String s) {
+        tmpPiso.setDireccion(s);
+    }
+    public void EditSuperficie(double k) {
+        tmpPiso.setSuperficie(k);
     }
     
     /*********** clients ***************/
