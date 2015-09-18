@@ -40,14 +40,7 @@ public class Piso {
         direccion = d;
         llistaVisitas = new ArrayList<Cliente> ();
     }
-    //Constructor de la clase Piso
-    public Piso() {
-        precio = 0;
-        numpiso = 0;
-        superficie = 0;
-        direccion = "";
-        llistaVisitas = new ArrayList<Cliente> ();
-    }
+    
     
     //Modificar precio
     public void setPrecio(double p) {
