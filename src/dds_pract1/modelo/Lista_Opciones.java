@@ -20,12 +20,12 @@ public class Lista_Opciones {
         "p - Area Pisos"        + "\n" +
         "l - Lista de pisos"    + "\n" +
         "q - Salir";
-        opcionesClientes= "Registrar nuevo cliente" + "\n" +
-        "Editar información clientes"   + "\n" +
-        "Salir";
-        opcionesPisos = "Registrar nuevo piso"  + "\n" +
-        "Editar informacion piso"    + "\n" +
-        "Salir";
+        opcionesClientes= "r - Registrar nuevo cliente" + "\n" +
+        "e - Editar información clientes"   + "\n" +
+        "s - Salir";
+        opcionesPisos = "r - Registrar nuevo piso"  + "\n" +
+        "e - Editar informacion piso"    + "\n" +
+        "s - Salir";
     }
     
     public String getOpcionesPrincipales() {
@@ -39,6 +39,7 @@ public class Lista_Opciones {
     public String getOpcionesPisos() {
         return opcionesPisos;
     }
+
 
     
     /*

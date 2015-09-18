@@ -27,14 +27,14 @@ public class cnt
     }
     
     //PISOS//
-    public void AddPiso() {
-        tmpPiso = new Piso();
+    public void AddPiso(String s, int n, double p, double sp) {
+        tmpPiso = new Piso(p,n,sp,s);
         llistaPisos.add(tmpPiso);
     }
     public String ShowListPisos () {
         String lista = "";
         for(int i = 0; i < llistaPisos.size(); ++i) {
-            lista += i + " " + llistaPisos.get(i);
+            lista += i + "- \n" + llistaPisos.get(i);
         }
         return lista;
     }
@@ -53,12 +53,15 @@ public class cnt
     public void EditSuperficie(double k) {
         tmpPiso.setSuperficie(k);
     }
+    public String ShowListaClientesPiso() {
+        return tmpPiso.ShowVisitas();
+    }
     
     /*********** clients ***************/
 
     /*********** ADD client ***********/
-    public void AddClientBegin ()
-    {   tmpClient = new Cliente (); }
+    public void AddClientBegin (int n, int t, String s)
+    {   tmpClient = new Cliente (n,s,t); }
     public void AddClientEnd ()
     {   llistaClients.add ( tmpClient ); }
 
@@ -69,7 +72,7 @@ public class cnt
         int i;
         
         for (i = 0; i < llistaClients.size(); i++)
-            o += i + " " + llistaClients.get(i);
+            o += i + "- \n" + llistaClients.get(i);
         return o;
     }
     
@@ -82,5 +85,4 @@ public class cnt
     {   tmpClient.setDNI(e); }
     public void EditClientNumberHotel (int e)
     {   tmpClient.setNumberHotel(e); }
-    
 }
