@@ -12,13 +12,21 @@ package dds_pract1.modelo;
 
 
 public class Lista_Opciones {
-    //**
-    
+    /**
+     * Clase que va a devolver las listas de de opciones que gestionara el menu principal
+     * @param opcionesPrincipales Contiene las opciones del menu principal
+     * @param opcionesClientes Contiene las opciones del menu de clientes
+     * @param opcionesPisos Contiene las opciones del menu de los pisos
+     */
+
     String opcionesPrincipales;
     String opcionesClientes;
     String opcionesPisos;
     
     public Lista_Opciones ()
+    /**
+     * Metodo que genera las tres listas de opciones
+     */
     {
         opcionesPrincipales = "c - Area Clientes"   + "\n" +
         "p - Area Pisos"        + "\n" +
