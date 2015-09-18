@@ -11,14 +11,28 @@ import java.util.ArrayList;
  *
  * @author mferrema35.alumnes
  */
+
+/** Clase encargada de gestionar lo referente a pisos asi como generar una lista de pisos registrados y que cliente lo visita
+ */
 public class Piso {
+    /** double que nos guarda el precio del piso */
     double precio;
+    /** int que nos guarda el numero del piso */
     int numpiso;
+    /** double que nos guarda la superficie que tiene el piso*/
     double superficie;
+    /** String que nos guarda la dirección donde se encuentra el piso*/
     String direccion;
+    /** ArrayList que nos guardara la lista de visitas de casa piso en la lista*/
     ArrayList<Cliente> llistaVisitas;
-    
-    //Constructor de la clase Piso
+
+    /**
+     * Constructor que nos generará pisos a partir de los datos introducidos por el usuario
+     * @param p precio
+     * @param n numero del piso
+     * @param s superficie del piso
+     * @param d direccion donde se encuentra el piso
+     */
     public Piso(double p, int n, double s, String d) {
         precio = p;
         numpiso = n;

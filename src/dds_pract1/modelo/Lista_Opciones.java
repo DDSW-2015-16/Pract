@@ -10,28 +10,28 @@ package dds_pract1.modelo;
  * @author aleivaca9.alumnes
  */
 
-
+/*** Clase que va a devolver las listas de de opciones que gestionara el menu principal */
 public class Lista_Opciones {
-    /**
-     * Clase que va a devolver las listas de de opciones que gestionara el menu principal
-     * @param opcionesPrincipales Contiene las opciones del menu principal
-     * @param opcionesClientes Contiene las opciones del menu de clientes
-     * @param opcionesPisos Contiene las opciones del menu de los pisos
-     */
 
+    /**Lista de las opciones principales de la aplicacion*/
     String opcionesPrincipales;
+    /**Lista de las opciones del area de clientes */
     String opcionesClientes;
+    /** Lista de las opcines del area de pisos*/
     String opcionesPisos;
-    
-    public Lista_Opciones ()
+
+
     /**
-     * Metodo que genera las tres listas de opciones
+     * Constructor que genera las tres listas de opciones
      */
+    public Lista_Opciones ()
+
     {
         opcionesPrincipales = "c - Area Clientes"   + "\n" +
         "p - Area Pisos"        + "\n" +
         "l - Lista de pisos"    + "\n" +
         "q - Salir";
+
         opcionesClientes= "r - Registrar nuevo cliente" + "\n" +
         "e - Editar información clientes"   + "\n" +
         "s - Salir";
@@ -39,36 +39,31 @@ public class Lista_Opciones {
         "e - Editar informacion piso"    + "\n" +
         "s - Salir";
     }
-    
+
+    /**
+     * Metodo que devuelve la lista de opciones
+     * @return Lista con las opciones para que escoja el cliente
+     */
     public String getOpcionesPrincipales() {
         return opcionesPrincipales;
     }
 
+    /**
+     * Metodo que devuelve la lista de opciones del area de clientes
+     * @return Lista con las opciones del area de clientes para que el cliente escoja que quiere hacer
+     */
     public String getOpcionesClientes() {
+
         return opcionesClientes;
     }
 
+    /**
+     * Metodo que devuelve la lista de opciones del area de pisos
+     * @return Lista con las opciones del area de pisos para que el cliente escoja que quiere hacer
+     */
     public String getOpcionesPisos() {
+
         return opcionesPisos;
     }
-
-
-    
-    /*
-    Volia preguntar perque necessitem aquests sets?
-    - pregunta en Sistach -
-    */
-    public void setOpcionesPrincipales(String OpcionesPrincipales) {
-        this.opcionesPrincipales = OpcionesPrincipales;
-    }
-
-    public void setOpcionesClientes(String OpcionesClientes) {
-        this.opcionesClientes = OpcionesClientes;
-    }
-
-    public void setOpcionesPisos(String OpcionesPisos) {
-        this.opcionesPisos = OpcionesPisos;
-    }
-    
     
 }
