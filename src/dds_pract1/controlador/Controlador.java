@@ -13,14 +13,14 @@ import java.util.ArrayList;
  *
  * @author asistare7.alumnes
  */
-public class cnt
+public class Controlador
 {
     ArrayList<Cliente> llistaClients;
     Cliente tmpClient;
     Piso tmpPiso;
     ArrayList<Piso> llistaPisos;
     
-    public cnt ()
+    public Controlador ()
     {
         llistaClients = new ArrayList<Cliente> ();
         llistaPisos = new ArrayList<Piso>();

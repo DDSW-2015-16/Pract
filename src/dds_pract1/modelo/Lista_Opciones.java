@@ -9,7 +9,11 @@ package dds_pract1.modelo;
  *
  * @author aleivaca9.alumnes
  */
+
+
 public class Lista_Opciones {
+    //**
+    
     String opcionesPrincipales;
     String opcionesClientes;
     String opcionesPisos;

@@ -5,7 +5,7 @@
  */
 package dds_pract1.Vista;
 
-import dds_pract1.controlador.cnt;
+import dds_pract1.controlador.Controlador;
 import java.util.Scanner;
 
 import dds_pract1.modelo.Lista_Opciones;
@@ -22,25 +22,27 @@ public class DDS_Pract1 {
     {
         Scanner scanner = new Scanner(System.in);
         boolean bigWhile = true;
+        boolean smallWhile = true;
         Lista_Opciones strings = new Lista_Opciones ();
-        cnt controlador = new cnt();
+        Controlador controlador = new Controlador();
         
         System.out.println("Buenos días señor, bienvenido a BBB escoja la opcion deseada:");
         
         while (bigWhile)
         {
+            smallWhile = true;
             System.out.println (strings.getOpcionesPrincipales());
-            //Aqui empezamos a escoger la opciÃ³n que quiera el empresario
+            //Aqui empezamos a escoger la opcion que quiera el empresario
             switch(scanner.nextLine()){
                 case("c"):
-                    //Hemos seleccionado la opciÃ³n clientes
+                    //Hemos seleccionado la opcion clientes
                 System.out.println(strings.getOpcionesClientes());
                 Scanner sc = new Scanner(System.in);
+                while (smallWhile){
                     switch(scanner.nextLine()){
                         case("r"):
-                            //Hemos escogido la opciÃ³n de registrar un cliente
-                            //A continuacion se pedira la informacion y se llamara al constructor
-                            //TODO: Pedir la informaciÃ³n del piso y llamar al constructor
+                            //Hemos escogido la opcion de registrar un cliente
+                            //A continuacion se pedira la informacion 
                             System.out.println("Introduzca la información del cliente:");
                             System.out.println("Nombre: ");
                             String nombre = sc.nextLine();
@@ -48,22 +50,31 @@ public class DDS_Pract1 {
                             int dni = sc.nextInt();
                             System.out.println("Telefono:");
                             int tel = sc.nextInt();
+                            //Se llamara al constructor
                             controlador.AddClientBegin(dni, tel, nombre);
                             controlador.AddClientEnd();
                             break;
+                            //TODO: ALMACENAR CLIENTES EN UN FICHERO
                         case("e"):
-                            //Hemos escogido la opcion de editar los datos de un cliente
-                            //Se pedira que cliente quiere editar y que parametro
+                            //Hemos escogido la opcion de editar los datos de un cliente                          
+                            //Se pedira que cliente quiere editar y que parametro o borrar cliente
                             //TODO: Preguntar que cliente queremos editar
                             //TODO: Preguntar que caracteristica vamos a editar
+                            //TODO: BORRAR CLIENTES
+                            System.out.println("hola");
+                            System.out.println(strings.getOpcionesClientes());
                             break;
                         case("s"):
                             //Hemos escogido la opcion de salir del area de clientes
                             //TODO: Volver al estado anterior
+                            smallWhile= false;
                             break;
                         default:
-                            continue;
+                            System.out.println("No has introducido una opcion correcta, vuelvelo a intentar."); 
+                            System.out.println(strings.getOpcionesClientes());
+                            break;
                     }
+                }
                     break;
                 case("p"):
                     //llamamos la opciÃ³n de registrar pisos
