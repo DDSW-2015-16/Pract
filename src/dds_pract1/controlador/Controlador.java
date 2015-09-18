@@ -27,10 +27,12 @@ public class Controlador
     }
     
     //PISOS//
+    //Añadir Piso 
     public void AddPiso(String s, int n, double p, double sp) {
         tmpPiso = new Piso(p,n,sp,s);
         llistaPisos.add(tmpPiso);
     }
+    //Mostrar Lista de pisos
     public String ShowListPisos () {
         String lista = "";
         for(int i = 0; i < llistaPisos.size(); ++i) {
@@ -38,21 +40,27 @@ public class Controlador
         }
         return lista;
     }
+    //Seleccionar piso para editar
     public void SeleccionarPiso(int k) {
         tmpPiso = llistaPisos.get(k);
     }
+    //Editar precio del piso
     public void EdtiPrecio(double k) {
         tmpPiso.setPrecio(k);
     }
+    //Editar numero del piso
     public void EditNum(int k) {
         tmpPiso.setNum(k);
     }
+    //Editar Direccion del piso
     public void EditDireccion(String s) {
         tmpPiso.setDireccion(s);
     }
+    //Editar superficie del piso
     public void EditSuperficie(double k) {
         tmpPiso.setSuperficie(k);
     }
+    //Mostrar lista de visitas de los clientes del piso seleccionado
     public String ShowListaClientesPiso() {
         return tmpPiso.ShowVisitas();
     }
