@@ -12,7 +12,10 @@ package dds_pract1.modelo;
 
 /*** Clase que va a devolver las listas de de opciones que gestionara el menu principal */
 public class Lista_Opciones {
-
+    
+    /**
+     * Mensaje de presentacion de la aplicacion
+     */
     private String presentacion;
     /**Lista de las opciones principales de la aplicacion*/
     private String opcionesPrincipales;
@@ -20,9 +23,17 @@ public class Lista_Opciones {
     private String opcionesClientes;
     /** Lista de las opcines del area de pisos*/
     private String opcionesPisos;
-    
+    /**
+     * String que se imprime cuando se introduce un algo incorrecto
+     */
     private String errorNoEntiende;
+    /**
+     * Error que se imprime cuando no se ha introducido un digito
+     */
     private String errorNoDigito;
+    /**
+     * Error que se imprimer cuando se selecciona un elemento que no esta en la lista
+     */
     private String errorOverFlow;
 
 
@@ -54,7 +65,7 @@ public class Lista_Opciones {
                 "e - Editar informacion piso" +         "\n" +
                 "q - Salir";
         
-        errorNoEntiende = "No se a visto concidencias. Porfavor, escoja una opcion valida.\n";
+        errorNoEntiende = "No se han visto concidencias. Por favor, escoja una opción válida.\n";
         errorNoDigito = "Se le ha pedido un digito. El programa no ha interpretado un digito.\n";
         errorOverFlow = "Ha seleccionado un elemento fuera de la lista. No ha podido ser seleccionado.\n";
     }
@@ -86,11 +97,24 @@ public class Lista_Opciones {
 
         return opcionesPisos;
     }
-    
-    public String getErrorInterpret ()
-    { return errorNoEntiende; }
-    public String getErrorDigit ()
-    { return errorNoDigito; }
+    /**
+     * Metodo que devuelve el Error de un key incorrecto
+     * @return Mensaje de error
+     */
+    public String getErrorInterpret (){
+        return errorNoEntiende; 
+    }
+    /**
+     * Metodo que devuelve el error se ha introducido un valor aleatorio
+     * @return Mensaje de error
+     */
+    public String getErrorDigit (){ 
+        return errorNoDigito; 
+    }
+    /**
+     * Metodo que devuelve el error cuando se ha introducido un valor fuera de la lista
+     * @return  Mensaje de error
+     */
     public String getErrorOverFlow ()
     { return errorOverFlow; }
 }
