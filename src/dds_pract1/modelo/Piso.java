@@ -1,4 +1,4 @@
-/*
+//*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 /** Clase encargada de gestionar lo referente a pisos asi como generar una lista de pisos registrados y que cliente lo visita
  */
-public class Piso {
+public abstract class Piso {
     /** double que nos guarda el precio del piso */
     double precio;
     /** int que nos guarda el numero del piso */
@@ -88,11 +88,10 @@ public class Piso {
         return salida;
     }
     
-    @Override
-    public String toString() {
-        String salida = "Direccion: " + direccion + "\n" + "Piso: " + numpiso + "\n" + "Precio: " + precio + "\n" + "Superficie: " + superficie + "\n";
-        return salida;
+    public int getNumVisitas(){
+        return llistaVisitas.size();
     }
+    
     
     
 }
