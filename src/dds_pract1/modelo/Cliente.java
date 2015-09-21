@@ -10,16 +10,16 @@ package dds_pract1.modelo;
  * @author mferrema35.alumnes
  */
 public class Cliente {
-    int numerhotel;
+    int numeroTelefono;
     String DNI;
     String nombre;
     String aniversario;
     
-    public Cliente (int num, String name, String dni, String a) {
-        numerhotel = num;
-        nombre = name;
-        DNI = dni;
-        aniversario = a;
+    public Cliente () {
+        numeroTelefono = 0;
+        nombre = "";
+        DNI = "";
+        aniversario = "";
     }
     
     /* Concidero que normalment s'inicialitza sense saber que posar
@@ -34,8 +34,8 @@ public class Cliente {
         DNI = dni;
     }
     
-    public void setNumberHotel (int num) {
-        numerhotel = num;
+    public void setNumberPhone (int num) {
+        numeroTelefono = num;
     }
     public void setAniversari(String a) {
         aniversario = a;
@@ -52,12 +52,15 @@ public class Cliente {
     }
     
     public int getNumero() {
-        return numerhotel;
+        return numeroTelefono;
     }
     
     @Override
     public String toString() {
-        String salida =  "Nombre: " + nombre + "\n" +"Numero de telefono: " + numerhotel + "\n" + "DNI: " + DNI + "\n";
+        String salida =
+                "Nombre: " + nombre + "\n" +
+                "Numero de telefono: " + numeroTelefono + "\n" +
+                "DNI: " + DNI + "\n";
         return salida;
     }
 }
