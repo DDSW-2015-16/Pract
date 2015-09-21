@@ -11,42 +11,43 @@ package dds_pract1.modelo;
  */
 public class Cliente {
     int numerhotel;
-    int DNI;
+    String DNI;
     String nombre;
+    String aniversario;
     
-    public Cliente (int num, String name, int dni) {
+    public Cliente (int num, String name, String dni, String a) {
         numerhotel = num;
         nombre = name;
         DNI = dni;
+        aniversario = a;
     }
     
     /* Concidero que normalment s'inicialitza sense saber que posar
     - Sistach -
     */
-    public Cliente ()
-    {
-        numerhotel = 0;
-        DNI = 0;
-        nombre = "";
-    }
     
     public void setName (String name) {
         nombre = name;
     }
     
-    public void setDNI(int dni) {
+    public void setDNI(String dni) {
         DNI = dni;
     }
     
     public void setNumberHotel (int num) {
         numerhotel = num;
     }
-    
+    public void setAniversari(String a) {
+        aniversario = a;
+    }
+    public String getAniversari() {
+        return aniversario;
+    }
     public String getName() {
         return nombre;
     }
     
-    public int getDNI() {
+    public String getDNI() {
         return DNI;
     }
     

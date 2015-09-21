@@ -68,8 +68,8 @@ public class Controlador
     /*********** clients ***************/
 
     /*********** ADD client ***********/
-    public void AddClientBegin (int n, int t, String s)
-    {   tmpClient = new Cliente (n,s,t); }
+    public void AddClientBegin (int t, String n, String d, String a)
+    {   tmpClient = new Cliente (t,n,d,a); }
     public void AddClientEnd ()
     {   llistaClients.add ( tmpClient ); }
 
@@ -89,7 +89,7 @@ public class Controlador
     {   tmpClient = llistaClients.get(e); }
     public void EditClientName (String e)
     {   tmpClient.setName(e); }
-    public void EditClientDNI (int e)
+    public void EditClientDNI (String e)
     {   tmpClient.setDNI(e); }
     public void EditClientNumberHotel (int e)
     {   tmpClient.setNumberHotel(e); }

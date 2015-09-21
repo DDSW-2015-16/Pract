@@ -47,11 +47,13 @@ public class DDS_Pract1 {
                             System.out.println("Nombre: ");
                             String nombre = sc.nextLine();
                             System.out.println("Dni:");
-                            int dni = sc.nextInt();
+                            String dni = sc.nextLine();
                             System.out.println("Telefono:");
                             int tel = sc.nextInt();
+                            System.out.println("Fecha de aniversario: ");
+                            String a = sc.nextLine();
                             //Se llamara al constructor
-                            controlador.AddClientBegin(dni, tel, nombre);
+                            controlador.AddClientBegin(tel, nombre, dni, a);
                             controlador.AddClientEnd();
                             break;
                             //TODO: ALMACENAR CLIENTES EN UN FICHERO
