@@ -13,33 +13,54 @@ package dds_pract1.modelo;
 /*** Clase que va a devolver las listas de de opciones que gestionara el menu principal */
 public class Lista_Opciones {
 
+    private String presentacion;
     /**Lista de las opciones principales de la aplicacion*/
-    String opcionesPrincipales;
+    private String opcionesPrincipales;
     /**Lista de las opciones del area de clientes */
-    String opcionesClientes;
+    private String opcionesClientes;
     /** Lista de las opcines del area de pisos*/
-    String opcionesPisos;
+    private String opcionesPisos;
+    
+    private String errorNoEntiende;
+    private String errorNoDigito;
+    private String errorOverFlow;
 
 
     /**
      * Constructor que genera las tres listas de opciones
      */
     public Lista_Opciones ()
-
     {
-        opcionesPrincipales = "c - Area Clientes"   + "\n" +
-        "p - Area Pisos"        + "\n" +
-        "l - Lista de pisos"    + "\n" +
-        "q - Salir";
+        presentacion = "Buenos días señor, bienvenido a Bueno, Bonito y Barato (BBB)";
+        opcionesPrincipales =
+                "Esta en el menu principal" +   "\n" +
+                "Escoja la opcion deseada:" +   "\n" +
+                "c - Area Clientes"+            "\n" +
+                "p - Area Pisos" +              "\n" +
+                "l - Lista de pisos" +          "\n" +
+                "q - Salir";
 
-        opcionesClientes= "r - Registrar nuevo cliente" + "\n" +
-        "e - Editar información clientes"   + "\n" +
-        "s - Salir";
-        opcionesPisos = "r - Registrar nuevo piso"  + "\n" +
-        "e - Editar informacion piso"    + "\n" +
-        "s - Salir";
+        opcionesClientes =
+                "Has seleccionado la opcion clientes" + "\n" +
+                "Escoja la opcion deseada:" +           "\n" +
+                "r - Registrar nuevo cliente" +         "\n" +
+                "e - Editar información clientes" +     "\n" +
+                "q - Salir";
+        
+        opcionesPisos =
+                "Has seleccionado la opcion pisos" +    "\n" +
+                "Escoja la opcion deseada:" +           "\n" +
+                "r - Registrar nuevo piso" +            "\n" +
+                "e - Editar informacion piso" +         "\n" +
+                "q - Salir";
+        
+        errorNoEntiende = "No se a visto concidencias. Porfavor, escoja una opcion valida.\n";
+        errorNoDigito = "Se le ha pedido un digito. El programa no ha interpretado un digito.\n";
+        errorOverFlow = "Ha seleccionado un elemento fuera de la lista. No ha podido ser seleccionado.\n";
     }
 
+    public String getPresentacion ()
+    { return presentacion; }
     /**
      * Metodo que devuelve la lista de opciones
      * @return Lista con las opciones para que escoja el cliente
@@ -66,4 +87,10 @@ public class Lista_Opciones {
         return opcionesPisos;
     }
     
+    public String getErrorInterpret ()
+    { return errorNoEntiende; }
+    public String getErrorDigit ()
+    { return errorNoDigito; }
+    public String getErrorOverFlow ()
+    { return errorOverFlow; }
 }
