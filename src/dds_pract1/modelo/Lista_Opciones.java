@@ -21,6 +21,7 @@ public class Lista_Opciones {
     private String opcionesPrincipales;
     /**Lista de las opciones del area de clientes */
     private String opcionesClientes;
+    private String opcionesEditarCliente;
     /** Lista de las opcines del area de pisos*/
     private String opcionesPisos;
     /**
@@ -56,14 +57,22 @@ public class Lista_Opciones {
                 "Escoja la opcion deseada:" +           "\n" +
                 "r - Registrar nuevo cliente" +         "\n" +
                 "e - Editar información clientes" +     "\n" +
-                "q - Salir";
+                "b - Volver atras";
+        
+        opcionesEditarCliente =
+                "Has seleccionado la opcion editar cliente" +   "\n" +
+                "Escoja la opcion deseada:" +                   "\n" +
+                "n - Editar el nombre" +                        "\n" +
+                "d - Editar el DNI" +                           "\n" +
+                "p - Editar telefono" +                         "\n" +
+                "b - Volver atras";
         
         opcionesPisos =
                 "Has seleccionado la opcion pisos" +    "\n" +
                 "Escoja la opcion deseada:" +           "\n" +
                 "r - Registrar nuevo piso" +            "\n" +
                 "e - Editar informacion piso" +         "\n" +
-                "q - Salir";
+                "b - Volver atras";
         
         errorNoEntiende = "No se han visto concidencias. Por favor, escoja una opción válida.\n";
         errorNoDigito = "Se le ha pedido un digito. El programa no ha interpretado un digito.\n";
@@ -117,4 +126,8 @@ public class Lista_Opciones {
      */
     public String getErrorOverFlow ()
     { return errorOverFlow; }
+    
+    public String getOpcionesEditarCliente ()
+    { return opcionesEditarCliente; }
 }
+
