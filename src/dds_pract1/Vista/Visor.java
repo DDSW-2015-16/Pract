@@ -6,7 +6,6 @@
 package dds_pract1.Vista;
 
 import dds_pract1.controlador.Controlador;
-import dds_pract1.modelo.Lista_Opciones;
 import java.util.Scanner;
 
 /**
@@ -27,14 +26,12 @@ public class Visor {
         scanner = new Scanner(System.in);
         strings = new Lista_Opciones ();
         controlador = new Controlador();
-        
-        System.out.println(strings.getPresentacion ());
-        MenuPrincipal ();
     }
     
-    private void MenuPrincipal ()
+    public void MenuPrincipal ()
     {
         boolean loop = true;
+        System.out.println(strings.getPresentacion ());
         while (loop)
         {
             System.out.println (strings.getOpcionesPrincipales());
@@ -47,7 +44,9 @@ public class Visor {
                 //MenuPisos ();
                 System.out.println ("Esta en beta");
                 break;
-            case ("l"): break;
+            case ("l"):
+                System.out.println ("Esta en beta");
+                break;
             case ("q"):
                 System.out.println ("Adios");
                 loop = false;
@@ -68,9 +67,12 @@ public class Visor {
             switch (scanner.nextLine())
             {
             case ("r"):
-                      
+                AddClient ();
+                break;
             case ("e"):
-            case ("q"):
+                EditClient ();
+                break;
+            case ("b"):
                 loop = false;
                 break;
             default:
@@ -80,20 +82,107 @@ public class Visor {
         }
     }
     
+    private void MenuEditClient ()
+    {
+        boolean loop = true;
+        while (loop)
+        {
+            System.out.println ("Estado del cliente:\n" + controlador.ShowCliente());
+            System.out.println (strings.getOpcionesEditarCliente());
+            switch (scanner.nextLine())
+            {
+            case "n":
+                System.out.println ("Introduce el nuevo nombre:");
+                controlador.EditClientName(scanner.nextLine());
+                break;
+            case "d":
+                System.out.println ("Introduce el nuevo DNI:");
+                controlador.EditClientDNI(scanner.nextLine());
+                break;
+            case "p":
+                System.out.println ("Introduce el nuevo numero de telefono:");
+                controlador.EditClientNumberPhone( InputDigit () );
+                break;
+            case "b":
+                loop = false;
+                break;
+            default:
+                System.out.println (strings.getErrorInterpret());
+                break;
+            }
+        }
+    }
+    
+    
+/*************************/
+/* Controlar els clients */
+/*************************/
     private void AddClient ()
     {
+        controlador.AddClientBegin();
+        
         System.out.println("Introduzca la información del cliente:");
         System.out.println("Nombre: ");
-        String nombre = sc.nextLine();
+        controlador.EditClientName(scanner.nextLine());
         System.out.println("Dni:");
-        int dni = sc.nextInt();
+        controlador.EditClientDNI(scanner.nextLine());
         System.out.println("Telefono:");
-        int tel = sc.nextInt();
-        //Se llamara al constructor
-        controlador.AddClientBegin(dni, tel, nombre);
+        controlador.EditClientNumberPhone(InputDigit ());
+        
         controlador.AddClientEnd();
-        break;
-        //TODO: ALMACENAR CLIENTES EN UN FICHERO
+    }
+        private void EditClient ()
+    {
+        if ( SelectClient () )
+                MenuEditClient ();
+        else /* Control d'error */
+            System.out.println (strings.getErrorOverFlow());
+    }
+    
+    /**
+     * Fem que surti directament, ja que aixi evitem errors de no existencia.
+     * @return Si ha pogut ser seleccionat true, sino false
+     */
+    private boolean SelectClient ()
+    {
+        boolean loop = true;
+        System.out.println
+        (
+                "Mostrem tots els clients:\n" +
+                controlador.ShowListClients() +
+                "Seleccioni pel index el client que vol."
+        );
+
+        try
+        {
+            controlador.SelectionClient( InputDigit () );
+            return true;
+        }catch (IndexOutOfBoundsException ex)
+        { /* exepcio de si estas fora del array */
+            return false;
+        }
+    }
+    
+
+    
+/*******************************/
+/* Apartat per ajudar al visor */
+/*******************************/
+    private int InputDigit ()
+    {
+        Integer o = new Integer (0);
+        boolean loop = true;
+        while (loop)
+        {
+            try
+            {
+                o = Integer.parseInt(scanner.nextLine());
+                loop = false; // Si ha arribat aqui, ja tenim el resultat desitjat
+            }catch (NumberFormatException e) {
+                System.out.println (strings.getErrorDigit());
+            }
+        }
+        return o.intValue();
     }
 }
           /*      
