@@ -7,6 +7,8 @@ package dds_pract1.controlador;
 
 import dds_pract1.modelo.Cliente;
 import dds_pract1.modelo.Piso;
+import dds_pract1.modelo.Piso_Nuevo;
+import dds_pract1.modelo.Piso_Prot_Oficial;
 import java.util.ArrayList;
 
 /**
@@ -28,8 +30,12 @@ public class Controlador
     
     //PISOS//
     //Añadir Piso 
-    public void AddPisoNuevo(String s, int n, double p, double sp) {
-        tmpPiso = new Piso_Nuevo(p,n,sp,s);
+    public void AddPisoNuevo(String s, int n, double p, double sp, int porcentaje) {
+        tmpPiso = new Piso_Nuevo(p,n,sp,s,porcentaje);
+        llistaPisos.add(tmpPiso);
+    }
+    public void AddPisoProtOficial(String s, int n, double p, double sp, int id) {
+        tmpPiso = new Piso_Prot_Oficial(p,n,sp,s,id);
         llistaPisos.add(tmpPiso);
     }
     //Mostrar Lista de pisos
