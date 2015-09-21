@@ -71,11 +71,13 @@ public class Controlador
         return tmpPiso.ShowVisitas();
     }
     
+    /***********************************/
     /*********** clients ***************/
+    /***********************************/
 
     /*********** ADD client ***********/
-    public void AddClientBegin (int t, String n, String d, String a)
-    {   tmpClient = new Cliente (t,n,d,a); }
+    public void AddClientBegin ()
+    {   tmpClient = new Cliente (); }
     public void AddClientEnd ()
     {   llistaClients.add ( tmpClient ); }
 
@@ -84,19 +86,24 @@ public class Controlador
     {
         String o = "";
         int i;
-        
-        for (i = 0; i < llistaClients.size(); i++)
-            o += i + "- \n" + llistaClients.get(i);
+        if (llistaClients.size() > 0)
+        {
+            for (i = 0; i < llistaClients.size(); i++)
+                o += i + "- \n" + llistaClients.get(i);
+        } else
+            return "None";
         return o;
     }
+    public String ShowCliente ()
+    { return tmpClient.toString(); }
     
     /*********** Edit client ***********/
-    public void SelectionClient (int e)
+    public void SelectionClient (int e) throws IndexOutOfBoundsException
     {   tmpClient = llistaClients.get(e); }
     public void EditClientName (String e)
     {   tmpClient.setName(e); }
     public void EditClientDNI (String e)
     {   tmpClient.setDNI(e); }
-    public void EditClientNumberHotel (int e)
-    {   tmpClient.setNumberHotel(e); }
+    public void EditClientNumberPhone (int e)
+    {   tmpClient.setNumberPhone(e); }
 }
