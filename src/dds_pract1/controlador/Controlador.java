@@ -28,8 +28,8 @@ public class Controlador
     
     //PISOS//
     //Añadir Piso 
-    public void AddPiso(String s, int n, double p, double sp) {
-        tmpPiso = new Piso(p,n,sp,s);
+    public void AddPisoNuevo(String s, int n, double p, double sp) {
+        tmpPiso = new Piso_Nuevo(p,n,sp,s);
         llistaPisos.add(tmpPiso);
     }
     //Mostrar Lista de pisos
