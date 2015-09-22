@@ -41,11 +41,10 @@ public class Visor {
                 MenuClient ();
                 break;
             case("p"):/* Seleccion de piso */
-                //MenuPisos ();
-                System.out.println ("Esta en beta");
+                MenuPisos ();
                 break;
             case ("l"):
-                System.out.println ("Esta en beta");
+                System.out.println(controlador.ShowListPisos());
                 break;
             case ("q"):
                 System.out.println ("Adios");
@@ -57,7 +56,69 @@ public class Visor {
             }
         }
     }
-    
+    /*
+    Menu de los pisos
+    */
+    private void MenuPisos() {
+        boolean loop = true;
+        while (loop) {
+            System.out.println(strings.getOpcionesPisos());
+            switch(scanner.nextLine())
+            {
+                case("r"):
+                    AddPiso();
+                    break;
+                case("e"):
+                    EditPiso();
+                    break;
+                case("b"):
+                    loop = false;
+                    break;
+                default:
+                    System.out.println(strings.getErrorInterpret());
+                    break;
+            }
+        }
+        
+    }
+    /*
+    Menu para editar un piso
+    */
+    private void MenuEditPisos() {
+        boolean loop = true;
+        while(loop) {
+            System.out.println("Estado del piso:\n" + controlador.ShowPiso());
+            System.out.println(strings.getOpcionesEditarPisos());
+            switch(scanner.nextLine()) {
+                case "d":
+                    System.out.println("Introduce la nueva direccion:");
+                    controlador.EditDireccion(scanner.nextLine());
+                    break;
+                case "n":
+                    System.out.println("Introduce el nuevo numero de piso:");
+                    controlador.EditNum(scanner.nextInt());
+                    break;
+                case "p":
+                    System.out.println("Introduce el nuevo preci del piso:");
+                    controlador.EdtiPrecio(scanner.nextDouble());
+                    break;
+                case "s":
+                    System.out.println("Introduce la nueva superficie del piso:");
+                    controlador.EditSuperficie(scanner.nextDouble());
+                    break;
+                case "i":
+                    System.out.println("Introduce el identificador/porcentaje del piso:");
+                    controlador.EditPorcentajeIdentificador(scanner.nextInt());
+                    break;
+                case "b":
+                    loop = false;
+                    break;
+                default:
+                    System.out.println (strings.getErrorInterpret());
+                    break;
+            }
+        }
+    }
     private void MenuClient ()
     {
         boolean loop = true;
@@ -112,7 +173,7 @@ public class Visor {
             }
         }
     }
-    
+
     
 /*************************/
 /* Controlar els clients */
@@ -131,7 +192,8 @@ public class Visor {
         
         controlador.AddClientEnd();
     }
-        private void EditClient ()
+    
+    private void EditClient ()
     {
         if ( SelectClient () )
                 MenuEditClient ();
@@ -148,9 +210,9 @@ public class Visor {
         boolean loop = true;
         System.out.println
         (
-                "Mostrem tots els clients:\n" +
+                "Lista de clientes:\n" +
                 controlador.ShowListClients() +
-                "Seleccioni pel index el client que vol."
+                "Selecciona el cliente deseado:"
         );
 
         try
@@ -162,9 +224,90 @@ public class Visor {
             return false;
         }
     }
+ 
+/*************************/
+/* Controlar los pisos */
+/*************************/
+    /*
+    Añadir un piso
+    */
+    private void AddPiso() {
+        System.out.println("Introduzca la información del piso:");
+        System.out.println("Se trata de un piso nuevo(S/N):");
+        switch(scanner.nextLine()) {
+            case("S"):
+                AddPisoNuevo();
+                break;
+            case("N"):
+                AddPisoOficial();
+                break;
+            default:
+                break;
+            
+        }
+    }
+    /*
+    Funcion auxiliar para añadir un piso nuevo
+    */
+    private void AddPisoNuevo() {
+        System.out.println("Direccion: ");
+        String d = scanner.nextLine();
+        System.out.println("Numero piso:");
+        int n = scanner.nextInt();
+        System.out.println("Precio:");
+        double p = scanner.nextDouble();
+        System.out.println("Superficie: ");
+        double s = scanner.nextDouble();
+        System.out.println("Porcentaje de beneficio: ");
+        int pc = scanner.nextInt();
+        controlador.AddPisoNuevo(d, n, p, s, pc);
+    }
+    /*
+    Funcion auxiliar para añadir un piso de proteccion oficial
+    */
+    private void AddPisoOficial() {
+        System.out.println("Direccion: ");
+        String d = scanner.nextLine();
+        System.out.println("Numero piso:");
+        int n = scanner.nextInt();
+        System.out.println("Precio:");
+        double p = scanner.nextDouble();
+        System.out.println("Superficie: ");
+        double s = scanner.nextDouble();
+        System.out.println("Identificador ");
+        int i = scanner.nextInt();
+        controlador.AddPisoProtOficial(d, n, p, s, i);
+    }
     
+    private void EditPiso() {
+        if(SelectPiso()) {
+            MenuEditPisos();
+        }
+        else /* Control d'error */{
+            System.out.println (strings.getErrorOverFlow());
+        }      
+    }
+    /*
+    Seleccionar piso deseado
+    */
+    private boolean SelectPiso() {
+        boolean loop = true;
+        System.out.println
+        (
+                "Lista de pisos:\n" +
+                controlador.ShowListPisos() +
+                "Selecciona el piso deseado:"
+        );
 
-    
+        try
+        {
+            controlador.SeleccionarPiso(InputDigit());
+            return true;
+        }catch (IndexOutOfBoundsException ex)
+        { /* exepcio de si estas fora del array */
+            return false;
+        }
+    }
 /*******************************/
 /* Apartat per ajudar al visor */
 /*******************************/
@@ -185,93 +328,4 @@ public class Visor {
         return o.intValue();
     }
 }
-          /*      
-                Scanner sc = new Scanner(System.in);
-                while (smallWhile){
-                    switch(scanner.nextLine()){
-                        case("r"):
-             
-                        case("e"):
-                            //Hemos escogido la opcion de editar los datos de un cliente                          
-                            //Se pedira que cliente quiere editar y que parametro o borrar cliente
-                            //TODO: Preguntar que cliente queremos editar
-                            //TODO: Preguntar que caracteristica vamos a editar
-                            //TODO: BORRAR CLIENTES
-                            System.out.println("hola");
-                            System.out.println(strings.getOpcionesClientes());
-                            break;
-                        case("q"):
-                            //Hemos escogido la opcion de salir del area de clientes
-                            //TODO: Volver al estado anterior
-                            smallWhile= false;
-                            break;
-                        default:
-                            System.out.println("No has introducido una opcion correcta, vuelvelo a intentar."); 
-                            System.out.println(strings.getOpcionesClientes());
-                            break;
-                    }
-                }
-    
-
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                
-                    //llamamos la opciÃ³n de registrar pisos
-                System.out.println(strings.getOpcionesPisos());
-                Scanner sc2 = new Scanner(System.in);
-                    switch(scanner.nextLine()){
-                        case("r"):
-                            //Hemos escogido la opciÃ³n de registrar un cliente
-                            //A continuacion se pedira la informacion y se llamara al constructor
-                            //TODO: Pedir la informaciÃ³n del piso y llamar al constructor
-                            System.out.println("Introduzca la informacion del piso: ");
-                            System.out.println("Direccion: ");
-                            String s = sc2.nextLine();
-                            System.out.println("Numero del piso: ");
-                            int n = sc2.nextInt();
-                            System.out.println("Precio: ");
-                            double p = sc2.nextDouble();
-                            System.out.println("Superficie: ");
-                            double sp = sc2.nextDouble();
-                            controlador.AddPiso(s, n, p, sp);
-                            break;
-                        case("e"):
-                            //Hemos escogido la opcion de editar los datos de un cliente
-                            //Se pedira que cliente quiere editar y que parametro
-                            //TODO: Preguntar que cliente queremos editar
-                            //TODO: Preguntar que caracteristica vamos a editar
-                            break;
-                            
-                        case("q"):
-                            //Hemos escogido la opcion de salir del area de clientes
-                            //TODO: Volver al estado anterior
-                            break;
-                    }
-                    break;
-                case("l"):
-                //visualizamos lista de pisos para escoger el piso a visitar
-                     //switch lista de pisos
-                    System.out.println(controlador.ShowListPisos());
-                    break;
-                case("q"):
-                    System.out.println("Adios!");
-                    bigWhile = false;
-                default:
-                    System.out.println (strings.getErrorInterpret());
-                    break;
-            }
-        }
-    }
-    
-}
-
-}*/
+          

@@ -20,6 +20,8 @@ public class Controlador
     ArrayList<Cliente> llistaClients;
     Cliente tmpClient;
     Piso tmpPiso;
+    Piso_Nuevo tmpPisoN;
+    Piso_Prot_Oficial tmpPisoP;
     ArrayList<Piso> llistaPisos;
     
     public Controlador ()
@@ -29,11 +31,16 @@ public class Controlador
     }
     
     //PISOS//
-    //Añadir Piso 
+    /*
+    Añadir piso nuevo
+    */
     public void AddPisoNuevo(String s, int n, double p, double sp, int porcentaje) {
         tmpPiso = new Piso_Nuevo(p,n,sp,s,porcentaje);
         llistaPisos.add(tmpPiso);
     }
+    /*
+    Añadir piso de proteccion oficial
+    */
     public void AddPisoProtOficial(String s, int n, double p, double sp, int id) {
         tmpPiso = new Piso_Prot_Oficial(p,n,sp,s,id);
         llistaPisos.add(tmpPiso);
@@ -45,6 +52,12 @@ public class Controlador
             lista += i + "- \n" + llistaPisos.get(i);
         }
         return lista;
+    }
+    /*
+    Muestra el piso seleccionado
+    */
+    public String ShowPiso() {
+        return tmpPiso.toString();
     }
     //Seleccionar piso para editar
     public void SeleccionarPiso(int k) {
@@ -65,6 +78,22 @@ public class Controlador
     //Editar superficie del piso
     public void EditSuperficie(double k) {
         tmpPiso.setSuperficie(k);
+    }
+    /*
+    Editar identificador o porcentaje del piso seleccionado dependiendo de su tipo
+    */
+    public void EditPorcentajeIdentificador(int k) {
+        boolean nuevo = tmpPiso.tipoPiso();
+        if(nuevo) {
+            tmpPisoN = (Piso_Nuevo) tmpPiso;
+            tmpPisoN.setPorcentaje(k);
+            tmpPiso = tmpPisoN;
+        }
+        else {
+            tmpPisoP = (Piso_Prot_Oficial) tmpPiso;
+            tmpPisoP.setIdprot(k);
+            tmpPiso = tmpPisoP;
+        }
     }
     //Mostrar lista de visitas de los clientes del piso seleccionado
     public String ShowListaClientesPiso() {

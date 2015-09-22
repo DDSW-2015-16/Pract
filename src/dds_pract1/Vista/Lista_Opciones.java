@@ -25,6 +25,10 @@ public class Lista_Opciones {
     /** Lista de las opcines del area de pisos*/
     private String opcionesPisos;
     /**
+     * Lista de las opciones de editar pisos
+     */
+    private String opcionesEditarPisos;
+    /**
      * String que se imprime cuando se introduce un algo incorrecto
      */
     private String errorNoEntiende;
@@ -73,6 +77,16 @@ public class Lista_Opciones {
                 "r - Registrar nuevo piso" +            "\n" +
                 "e - Editar informacion piso" +         "\n" +
                 "b - Volver atras";
+        opcionesEditarPisos=
+                "Has seleccionado la opcion editar pisos"+     "\n" +
+                "Escoja la opcion deseada:" +           "\n" +
+                "d - Direccion" +                       "\n" +
+                "n - Piso" +                            "\n" +
+                "p - Precio" +                          "\n" +
+                "s - Superficie" +                      "\n" +
+                "i - Porcentaje/Identificador" +        "\n" +
+                "b - Volver atras";
+                
         
         errorNoEntiende = "No se han visto concidencias. Por favor, escoja una opción válida.\n";
         errorNoDigito = "Se le ha pedido un digito. El programa no ha interpretado un digito.\n";
@@ -129,5 +143,9 @@ public class Lista_Opciones {
     
     public String getOpcionesEditarCliente ()
     { return opcionesEditarCliente; }
+    
+    public String getOpcionesEditarPisos() {
+        return opcionesEditarPisos;
+    }
 }
 

@@ -91,7 +91,8 @@ public abstract class Piso {
     public int getNumVisitas(){
         return llistaVisitas.size();
     }
-    
-    
-    
+    /*
+    Metodo para saber que tipo de piso se trata si de proteccion o nuevo
+    */
+    public abstract boolean tipoPiso();
 }

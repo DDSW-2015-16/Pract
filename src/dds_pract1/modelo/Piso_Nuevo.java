@@ -21,12 +21,12 @@ public class Piso_Nuevo extends Piso {
      * @param direccion Direccion donde se encuentra el piso 
      * @param porcentaje Porcentaje de beneficio para la inmobiliaria
      */
-   public Piso_Nuevo(double precio, int numero, double superficie, String direccion, int porcentaje){
+   public Piso_Nuevo(double precio, int numero, double superficie, String direccion, int p){
        /**
         * Llamamos al constructor de la clase padre Piso
         */
        super(precio,numero,superficie,direccion);
-       porcentaje = this.porcentaje;
+       porcentaje = p;
        
    }
   
@@ -34,13 +34,20 @@ public class Piso_Nuevo extends Piso {
         return porcentaje;
     }
 
-    public void setPorcentaje(int porcentaje) {
-        this.porcentaje = porcentaje;
+    public void setPorcentaje(int p) {
+        porcentaje = p;
     }
    @Override
     public String toString() {
-        String salida = "Direccion: " + direccion + "\n" + "Piso: " + numpiso + "\n" + "Precio: " + precio + "\n" + "Superficie: " + superficie + "\n" + porcentaje + "\n";
+        String salida = "Direccion: " + direccion + "\n" + "Piso: " + numpiso + "\n" + "Precio: " + precio + "\n" + "Superficie: " + superficie + "\n" +"Porcentaje: " + porcentaje + "\n";
         return salida;
+    }
+    /*
+    Devuelve true cuando el piso es nuevo
+    */
+    @Override
+    public boolean tipoPiso() {
+        return true;
     }
     
     
