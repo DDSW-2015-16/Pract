@@ -11,9 +11,14 @@ import java.util.ArrayList;
  *
  * @author mferrema35.alumnes
  */
-
-/** Clase encargada de gestionar lo referente a pisos asi como generar una lista de pisos registrados y que cliente lo visita
+/**
+ * Clase abstracta padre referente a todo tipo de piso, con caracteristicas como: <br>
+ * -Registrar que cliente visita el piso. <br>
+ * -Generar una lista de clientes que han visitado el piso . <br>
+ * -Poder editar cualquier valor de un piso. <br>
+ * -Saber el numero de personas que visitan el piso .<br>
  */
+
 public abstract class Piso {
     /** double que nos guarda el precio del piso */
     double precio;
@@ -41,58 +46,96 @@ public abstract class Piso {
         llistaVisitas = new ArrayList<Cliente> ();
     }
     
-    
-    //Modificar precio
+    /**
+     * Metodo que nos permite editar el precio de un piso
+     * @param p  nuevo valor para el precio del piso
+     */
+
     public void setPrecio(double p) {
         precio = p;
     }
-    //Modifcar numero del piso
+    /**
+     * Metodo que nos permite editar el numero de un piso
+     * @param n nuevo valor para el numero del piso
+     */
     public void setNum(int n) {
         numpiso = n;
     }
-    //Modificar Superficie del piso
+    /**
+     * Metodo que nos permite editar la superficie de un piso
+     * @param s Nuevo valor para la superficie del piso
+     */
     public void setSuperficie(double s) {
         superficie = s;
     }
-    //Modificar Direccion del piso
+    /**
+     * Metodo que nos sirve para editar la direccion del piso
+     * @param d Nuevo valor para la direccion del piso
+     */
     public void setDireccion(String d) {
         direccion = d;
     }
-    //Obtener precio del piso
+    /**
+     * Metodo que devuelve el precio del piso 
+     * @return double con el precio del piso
+     */
     public double getPrecio() {
         return precio;
     }
-    //Obtener numero del piso
+    /**
+     * Metodo que devuelve el numero del piso
+     * @return  int con el valor del piso
+     */
+    
     public int getNumPiso() {
         return numpiso;
     }
-    //Obtener superficie del piso
+    /**
+     * Metodo que devuelve el valor de la superficie del piso
+     * @return double con el valor del piso
+     */
     public double getSuperficie() {
         return superficie;
     }
-    //Obtener Direccion del piso
+    /**
+     * Metodo que devuelve la direccion del piso
+     * @return  String con la direccion en la que se encuentra el piso
+     */
     public String getDireccion() {
         return direccion;
     }
-    //Añadir visita de un cliente al piso
+    /**
+     * Metodo que añade un cliente que ha visitado el piso
+     * @param c Objeto cliente que se añade a llistavisitas
+     */
     public void AddVisita(Cliente c) {
         llistaVisitas.add(c);
     }
     
-    //Mostrar visistas del piso
+    /**
+     * Metodo que nos devuelve la lista de clientes que han visitado un piso determinado
+     * @return Lista de clientes
+     */
     public String ShowVisitas() {
-        String salida = "Lista de visitas: ";
+        //Introducimos el titulo de lista de visii
+        String salida = "Lista de clientes que han visitado este piso: " + "\n";
+        //Usamos un for que recorra la lista de clientes que tiene cada piso
         for (int i = 0; i < llistaVisitas.size(); ++i) {
+            //vamos generando el output
             salida += llistaVisitas.get(i) + "\n";
         }
         return salida;
     }
-    
+    /**
+     * Metodo que nos devuelve el numero de clientes que han visitado un piso dado
+     * @return El tamaño de la lista visitas
+     */
     public int getNumVisitas(){
         return llistaVisitas.size();
     }
-    /*
-    Metodo para saber que tipo de piso se trata si de proteccion o nuevo
-    */
+    /**
+     * Metodo para saber que tipo de piso se trata si de proteccion o nuevo
+     * @return 
+     */
     public abstract boolean tipoPiso();
 }
