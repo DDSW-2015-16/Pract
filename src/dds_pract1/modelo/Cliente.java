@@ -14,6 +14,7 @@ public class Cliente {
     String DNI;
     String nombre;
     String aniversario;
+    int visitasPisos;
     
     public Cliente () {
         numeroTelefono = 0;
@@ -55,12 +56,21 @@ public class Cliente {
         return numeroTelefono;
     }
     
+    public void anadirvisitapiso() {
+        visitasPisos++;
+    }
+    
+    public int getvisitaspiso() {
+        return visitasPisos;
+    }
+    
     @Override
     public String toString() {
         String salida =
                 "Nombre: " + nombre + "\n" +
                 "Numero de telefono: " + numeroTelefono + "\n" +
-                "DNI: " + DNI + "\n";
+                "DNI: " + DNI + "\n" +
+                "Fecha de nacimiento: " + aniversario + "\n";
         return salida;
     }
 }

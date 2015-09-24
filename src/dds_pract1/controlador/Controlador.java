@@ -18,6 +18,7 @@ import java.util.ArrayList;
 public class Controlador
 {
     ArrayList<Cliente> llistaClients;
+    ArrayList<Cliente> tmpllistaClients;
     Cliente tmpClient;
     Piso tmpPiso;
     Piso_Nuevo tmpPisoN;
@@ -135,4 +136,43 @@ public class Controlador
     {   tmpClient.setDNI(e); }
     public void EditClientNumberPhone (int e)
     {   tmpClient.setNumberPhone(e); }
+    public void EditClientBirth(String e) 
+    {   tmpClient.setAniversari(e); }
+    
+    /*
+        Añade la visita del cliente en el piso seleccionado y añade que el  
+        cliente ha visitado els piso
+    */
+    public void AnadirVisita() {
+        tmpPiso.AddVisita(tmpClient);
+        tmpClient.anadirvisitapiso();
+    }
+    
+    /*
+        Devuelve el piso con mayor visitas de los clientes.
+    */
+    public void maxPiso() {
+        Piso n = llistaPisos.get(0);
+        for(int i = 1; i < llistaPisos.size(); ++i) {
+            if(n.getNumVisitas() < llistaPisos.get(i).getNumVisitas()){
+                n = llistaPisos.get(i);
+            }
+        }
+        System.out.println("El piso más visitado es el siguiente: ");
+        System.out.println(n);
+    }
+    
+    /*
+        Devuelve el cliente que ha visitado mas pisos.
+    */
+    public void maxCliente() {
+        Cliente c = llistaClients.get(0);
+        for(int i = 1; i < llistaClients.size(); ++i) {
+            if(c.getvisitaspiso() < llistaClients.get(i).getvisitaspiso()) {
+                c= llistaClients.get(i);
+            }
+        }
+        System.out.println("El cliente que más pisos ha visitado es el siguiente: ");
+        System.out.println(c);
+    }
 }

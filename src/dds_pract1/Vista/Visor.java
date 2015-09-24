@@ -44,7 +44,7 @@ public class Visor {
                 MenuPisos ();
                 break;
             case ("l"):
-                System.out.println(controlador.ShowListPisos());
+                AnadirVisitas();
                 break;
             case ("q"):
                 System.out.println ("Adios");
@@ -56,6 +56,9 @@ public class Visor {
             }
         }
     }
+    
+    
+
     /*
     Menu de los pisos
     */
@@ -70,6 +73,9 @@ public class Visor {
                     break;
                 case("e"):
                     EditPiso();
+                    break;
+                case("m"):
+                    controlador.maxPiso();
                     break;
                 case("b"):
                     loop = false;
@@ -133,6 +139,8 @@ public class Visor {
             case ("e"):
                 EditClient ();
                 break;
+            case ("m"):
+                controlador.maxCliente();
             case ("b"):
                 loop = false;
                 break;
@@ -164,6 +172,10 @@ public class Visor {
                 System.out.println ("Introduce el nuevo numero de telefono:");
                 controlador.EditClientNumberPhone( InputDigit () );
                 break;
+            case "a":
+                System.out.println("Introduce la nueva fecha de nacimiento:");
+                controlador.EditClientBirth(scanner.nextLine());
+                break;
             case "b":
                 loop = false;
                 break;
@@ -189,6 +201,9 @@ public class Visor {
         controlador.EditClientDNI(scanner.nextLine());
         System.out.println("Telefono:");
         controlador.EditClientNumberPhone(InputDigit ());
+        System.out.println("Fecha de nacimiento:");
+        controlador.EditClientBirth(scanner.nextLine());
+        
         
         controlador.AddClientEnd();
     }
@@ -277,6 +292,34 @@ public class Visor {
         System.out.println("Identificador ");
         int i = scanner.nextInt();
         controlador.AddPisoProtOficial(d, n, p, s, i);
+    }
+    
+    /*
+        Permite añadir las visitas de los clientes a los pisos
+    */
+     private void AnadirVisitas() {
+        boolean loop = true;
+        String s;
+        while(loop) {
+            if(SelectPiso()) {
+                SelectClient();
+                controlador.AnadirVisita();
+                System.out.println("Quiere seguir añadiendo visitas? (S/N)");
+                switch(scanner.nextLine()) {
+                    case("N"):
+                        loop = false;
+                        break;
+                    case("S"):
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else {
+                loop = false;
+            }
+            
+        }
     }
     
     private void EditPiso() {

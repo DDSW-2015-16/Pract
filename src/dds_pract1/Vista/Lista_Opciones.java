@@ -53,7 +53,7 @@ public class Lista_Opciones {
                 "Escoja la opcion deseada:" +   "\n" +
                 "c - Area Clientes"+            "\n" +
                 "p - Area Pisos" +              "\n" +
-                "l - Lista de pisos" +          "\n" +
+                "l - Registrar Visitas a los Pisos" +          "\n" +
                 "q - Salir";
 
         opcionesClientes =
@@ -61,6 +61,7 @@ public class Lista_Opciones {
                 "Escoja la opcion deseada:" +           "\n" +
                 "r - Registrar nuevo cliente" +         "\n" +
                 "e - Editar información clientes" +     "\n" +
+                "m - Cliente que ha visitado más pisos"+        "\n" +
                 "b - Volver atras";
         
         opcionesEditarCliente =
@@ -69,6 +70,7 @@ public class Lista_Opciones {
                 "n - Editar el nombre" +                        "\n" +
                 "d - Editar el DNI" +                           "\n" +
                 "p - Editar telefono" +                         "\n" +
+                "a - Editar fecha de nacimiento" +              "\n" +
                 "b - Volver atras";
         
         opcionesPisos =
@@ -76,6 +78,7 @@ public class Lista_Opciones {
                 "Escoja la opcion deseada:" +           "\n" +
                 "r - Registrar nuevo piso" +            "\n" +
                 "e - Editar informacion piso" +         "\n" +
+                "m - Piso más visitado" +               "\n" +
                 "b - Volver atras";
         opcionesEditarPisos=
                 "Has seleccionado la opcion editar pisos"+     "\n" +
