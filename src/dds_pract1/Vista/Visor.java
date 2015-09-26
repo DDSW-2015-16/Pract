@@ -16,9 +16,7 @@ import java.util.Scanner;
  */
 public class Visor {
     
-    /**
-     * 
-     */
+
     Scanner scanner;
     Lista_Opciones strings;
     Controlador controlador;
@@ -29,7 +27,9 @@ public class Visor {
         strings = new Lista_Opciones ();
         controlador = new Controlador();
     }
-    
+    /**
+     * Metodo que controla el menu principal de la aplicacion que permite escoger lo q que el cliente quiera
+     */
     public void MenuPrincipal ()
     {
         boolean loop = true;
@@ -61,8 +61,8 @@ public class Visor {
     
     
 
-    /*
-    Menu de los pisos
+   /**
+    * Metodo que controla el menu de los pisos, aqui el cliente seleccionara la opcion deseada
     */
     private void MenuPisos() {
         boolean loop = true;
@@ -89,9 +89,9 @@ public class Visor {
         }
         
     }
-    /*
-    Menu para editar un piso
-    */
+    /**
+     * Menu del area de pisos el cliente seleccionara la opcion que quiera
+     */
     private void MenuEditPisos() {
         boolean loop = true;
         while(loop) {
@@ -127,6 +127,9 @@ public class Visor {
             }
         }
     }
+    /**
+     * Metodo que controla el area de clientes el cliente seleccionara la opcion que quiera
+     */
     private void MenuClient ()
     {
         boolean loop = true;
@@ -152,7 +155,9 @@ public class Visor {
             }
         }
     }
-    
+    /**
+     * Metodo que permite editar los datos de un cliente el cliente seleccionara la opcion que quiera
+     */
     private void MenuEditClient ()
     {
         boolean loop = true;
@@ -192,6 +197,10 @@ public class Visor {
 /*************************/
 /* Controlar els clients */
 /*************************/
+    /**
+     * Metodo que sive para anadir un cliente a partir de los datos  que se le preguntan al cliente
+     * para luego llamar al constructor
+     */
     private void AddClient ()
     {
         controlador.AddClientBegin();
@@ -209,7 +218,9 @@ public class Visor {
         
         controlador.AddClientEnd();
     }
-    
+    /**
+     * Metodo que controla que se pueda acceder a la opcion de editar clientes
+     */
     private void EditClient ()
     {
         if ( SelectClient () )
@@ -219,8 +230,8 @@ public class Visor {
     }
     
     /**
-     * Fem que surti directament, ja que aixi evitem errors de no existencia.
-     * @return Si ha pogut ser seleccionat true, sino false
+     * Metodo que controla la seleccion de clientes, si encuentra algun problema salta la excepcion
+     * @return True si se puede seleccionar, false si no ha sido posible
      */
     private boolean SelectClient ()
     {
@@ -245,8 +256,9 @@ public class Visor {
 /*************************/
 /* Controlar los pisos */
 /*************************/
-    /*
-    Añadir un piso
+   /**
+    * Metodo que controla la adicion de pisos, a partir de aqui un piso se preguntara si es de proteccion oficial
+    * y se continuara el programa
     */
     private void AddPiso() {
         System.out.println("Introduzca la información del piso:");
@@ -263,9 +275,10 @@ public class Visor {
             
         }
     }
-    /*
-    Funcion auxiliar para añadir un piso nuevo
-    */
+    /**
+     * Metodo que permite anadir un piso nuevo preguntando todos los datos
+     * viene de la opcion de anadir piso
+     */
     private void AddPisoNuevo() {
         System.out.println("Direccion: ");
         String d = scanner.nextLine();
@@ -279,9 +292,10 @@ public class Visor {
         int pc = scanner.nextInt();
         controlador.AddPisoNuevo(d, n, p, s, pc);
     }
-    /*
-    Funcion auxiliar para añadir un piso de proteccion oficial
-    */
+    /**
+     * Metodo que anade un piso de proteccion oficial preguntando
+     * la informacion al cliente viene de la opcion de anadir piso
+     */
     private void AddPisoOficial() {
         System.out.println("Direccion: ");
         String d = scanner.nextLine();
@@ -296,9 +310,9 @@ public class Visor {
         controlador.AddPisoProtOficial(d, n, p, s, i);
     }
     
-    /*
-        Permite añadir las visitas de los clientes a los pisos
-    */
+    /**
+     * Metodo que permite añadir visitas a los pisos
+     */
      private void AnadirVisitas() {
         boolean loop = true;
         String s;
@@ -323,7 +337,10 @@ public class Visor {
             
         }
     }
-    
+    /**
+     * Metodo que controla el menu de editar piso, que se 
+     * introduzca un numero correcto, en casi contrario salta error
+     */
     private void EditPiso() {
         if(SelectPiso()) {
             MenuEditPisos();
@@ -332,8 +349,11 @@ public class Visor {
             System.out.println (strings.getErrorOverFlow());
         }      
     }
-    /*
-    Seleccionar piso deseado
+   /**
+    * Metodo que sirve para seleccionar un piso de la lista que se le 
+    * muestra al cliente
+    * @return True si el piso es correcto se procedera a enviar a la parte de 
+    * editar piso, false si el piso es incorrecto
     */
     private boolean SelectPiso() {
         boolean loop = true;
@@ -356,6 +376,10 @@ public class Visor {
 /*******************************/
 /* Apartat per ajudar al visor */
 /*******************************/
+    /**
+     * Metodo que controla que se introduce correctamente un digito
+     * @return El valor deseado
+     */
     private int InputDigit ()
     {
         Integer o = new Integer (0);

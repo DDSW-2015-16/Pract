@@ -29,22 +29,33 @@ public class Piso_Nuevo extends Piso {
        porcentaje = p;
        
    }
-  
+   /**
+    * Metodo que devuelve el porcentaje de beneficio de un piso nuevo
+    * @return 
+    */
     public int getPorcentaje() {
         return porcentaje;
     }
-
+    /**
+     * Metodo que sirve para editar el porcentaje
+     * @param p int con el porcentaje
+     */
     public void setPorcentaje(int p) {
         porcentaje = p;
     }
+    /**
+     *Metodo que sirve para mostrar por pantalla un Piso_Nuevo
+     * @return 
+     */
    @Override
     public String toString() {
         String salida = "Direccion: " + direccion + "\n" + "Piso: " + numpiso + "\n" + "Precio: " + precio + "\n" + "Superficie: " + superficie + "\n" +"Porcentaje: " + porcentaje + "\n";
         return salida;
     }
-    /*
-    Devuelve true cuando el piso es nuevo
-    */
+    /**
+     * Metodo que sirve para saber si es un Piso_Prot_Oficial o un Piso_nuevo, devuelve true si es un Piso_Nuevo
+     * @return booleano segun el tipo que sea
+     */
     @Override
     public boolean tipoPiso() {
         return true;
