@@ -8,14 +8,16 @@ package dds_pract1.Vista;
 import dds_pract1.controlador.Controlador;
 import java.util.Scanner;
 
+
 /**
- *
- * @author asistare7.alumnes
+ * Clase Visor, la cual contiene todo lo necesario referente 
+ * a lo que vera el cliente por pantalla
+ * @author Leiva
  */
 public class Visor {
     
-    /*
-     * Totes les variables generals necessaries
+    /**
+     * 
      */
     Scanner scanner;
     Lista_Opciones strings;
@@ -106,7 +108,7 @@ public class Visor {
                     break;
                 case "p":
                     System.out.println("Introduce el nuevo preci del piso:");
-                    controlador.EdtiPrecio(scanner.nextDouble());
+                    controlador.EditPrecio(scanner.nextDouble());
                     break;
                 case "s":
                     System.out.println("Introduce la nueva superficie del piso:");
