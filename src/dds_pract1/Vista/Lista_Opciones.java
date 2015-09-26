@@ -143,10 +143,16 @@ public class Lista_Opciones {
      */
     public String getErrorOverFlow ()
     { return errorOverFlow; }
-    
+    /**
+     * Metodo que devuelve la lista de items que contienen las opciones para editar clientes
+     * @return String con la lista de opciones para que el cliente escoja
+     */
     public String getOpcionesEditarCliente ()
     { return opcionesEditarCliente; }
-    
+    /**
+     * Metodo que devuelve la lista de items que contienen las opciones de editar pisos
+     * @return String con la lista de opciones para que el cliente escoja
+     */
     public String getOpcionesEditarPisos() {
         return opcionesEditarPisos;
     }
