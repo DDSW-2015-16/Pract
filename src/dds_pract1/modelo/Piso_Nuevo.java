@@ -19,7 +19,7 @@ public class Piso_Nuevo extends Piso {
      * @param numero Numero del piso
      * @param superficie Superficie del piso
      * @param direccion Direccion donde se encuentra el piso 
-     * @param porcentaje Porcentaje de beneficio para la inmobiliaria
+     * @param p Porcentaje de beneficio para la inmobiliaria
      */
    public Piso_Nuevo(double precio, int numero, double superficie, String direccion, int p){
        /**
